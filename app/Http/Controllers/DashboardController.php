@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\NominationFilling;
 use App\Models\Payment;
 use App\Models\User;
+use App\Models\WebSetting;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -19,9 +20,10 @@ class DashboardController extends Controller
     // Dashboard - Analytics
   public function dashboardAnalytics()
   {
+    $setting = WebSetting::all()->first();
     $pageConfigs = ['pageHeader' => false];
 
-    return view('/content/dashboard/dashboard-analytics', compact('pageConfigs'));
+    return view('/content/dashboard/dashboard-analytics', compact('pageConfigs', 'setting'));
   }
 
     public function store(Request $request)
@@ -141,9 +143,10 @@ class DashboardController extends Controller
   // Dashboard - Ecommerce
   public function dashboardEcommerce()
   {
+    $setting = WebSetting::all()->first();
     $pageConfigs = ['pageHeader' => false];
 
-    return view('/content/dashboard/dashboard-ecommerce', ['pageConfigs' => $pageConfigs]);
+    return view('/content/dashboard/dashboard-ecommerce', compact('pageConfigs', 'setting'));
   }
 
 }

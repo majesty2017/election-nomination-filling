@@ -13,6 +13,18 @@
     <!-- Login v1 -->
     <div class="card mb-0">
       <div class="card-body">
+        @if(session()->has('info'))
+        <div class="demo-spacing-0">
+          <div class="alert alert-primary alert-dismissible fade show" role="alert">
+            <div class="alert-body">
+              {{ session()->get('info') }}
+            </div>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+        @endif
         <a href="javascript:void(0);" class="brand-logo">
           <img src="{{ asset('images/web-settings/logos/'.$setting->logo) }}" height="28" alt="">
           <h2 class="brand-text text-primary ml-1">{{ $setting->system_name }}</h2>
