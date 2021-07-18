@@ -97,8 +97,8 @@ Route::group(['prefix' => 'teams'], function () {
 Route::group(['prefix' => 'web_settings'], function () {
   Route::get('', [WebSettingController::class,'index'])->name('web-settings');
   Route::post('create', [WebSettingController::class,'store'])->name('web_setting-create');
+  Route::post('settings', [WebSettingController::class,'settings'])->name('settings');
   Route::post('show', [WebSettingController::class,'show'])->name('web_setting-show');
-  Route::post('update', [WebSettingController::class,'update'])->name('web_setting-update');
 });
 /* Route Web Settings */
 

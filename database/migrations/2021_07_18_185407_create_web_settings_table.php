@@ -18,6 +18,7 @@ class CreateWebSettingsTable extends Migration
             $table->string('favicon');
             $table->string('logo');
             $table->string('system_name');
+            $table->string('short_name');
             $table->string('copyright');
             $table->string('website')->nullable();
             $table->timestamps();

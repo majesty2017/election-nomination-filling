@@ -494,3 +494,21 @@ function edit_teams(id) {
     })
     hold_modal('edit-team-modal', 'show')
 }
+
+$(document).ready(function () {
+    $.ajax({
+        url: '/web_settings/settings',
+        type: 'post',
+        data: {_token: _token},
+        success: function (res) {
+            if (res) {
+                $.each(res, function (k, v) {
+                    $('#'+k).val(v)
+                })
+                $('#limage_loader').html(`<img src="images/web-settings/logos/${res.logo}" height="80" width="80" style="border-radius: 100px" alt="Logo"/>`)
+
+                $('#fimage_loader').html(`<img src="images/web-settings/favicons/${res.favicon}" height="80" width="80" style="border-radius: 100px" alt="Favivon"/>`)
+            }
+        }
+    })
+})
