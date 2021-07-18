@@ -1,0 +1,113 @@
+{
+  "menu": [
+    {
+      "name": "Dashboards",
+      "badge": "2",
+      "badgeClass": "badge badge-light-warning badge-pill ml-auto mr-1",
+      "icon": "home",
+      "slug": "",
+      "submenu": [
+        {
+          "url": "dashboard/home",
+          "name": "Analytics",
+          "icon": "circle",
+          "slug": "dashboard-analytics"
+        },
+        {
+          "url": "users",
+          "name": "users",
+          "icon": "users",
+          "slug": "users"
+        }
+      ]
+    },
+
+    {
+      "navheader": "fillings",
+      "slug": ""
+    },
+    {
+      "url": "departments",
+      "name": "departments",
+      "icon": "home",
+      "slug": "departments"
+    },
+    {
+      "url": "programmes",
+      "name": "programmes",
+      "icon": "award",
+      "slug": "programmes"
+    },
+    {
+      "url": "portfolios",
+      "name": "portfolios",
+      "icon": "check-square",
+      "slug": "portfolios"
+    },
+    {
+      "url": "students",
+      "name": "students",
+      "icon": "users",
+      "slug": "students"
+    },
+    {
+      "url": "payments",
+      "name": "payments",
+      "icon": "credit-card",
+      "slug": "payments"
+    },
+    {
+      "url": "fillings",
+      "name": "nomination_fillings",
+      "icon": "file-plus",
+      "slug": "fillings"
+    },
+
+    {
+      "navheader": "settings_reports",
+      "slug": ""
+    },
+    {
+      "name": "settings",
+      "icon": "settings",
+      "badge": "",
+      "slug": "",
+      "badgeClass": "badge badge-pill badge-light-danger ml-auto mr-1",
+      "submenu": [
+        {
+          "url": "chart/apex",
+          "name": "Apex",
+          "icon": "circle",
+          "slug": "chart-apex"
+        },
+        {
+          "url": "chart/chartjs",
+          "name": "Chartjs",
+          "icon": "circle",
+          "slug": "chart-chartjs"
+        }
+      ]
+    },
+    {
+      "name": "reports",
+      "icon": "pie-chart",
+      "badge": "",
+      "slug": "",
+      "badgeClass": "badge badge-pill badge-light-danger ml-auto mr-1",
+      "submenu": [
+        {
+          "url": "chart/apex",
+          "name": "Apex",
+          "icon": "circle",
+          "slug": "chart-apex"
+        },
+        {
+          "url": "chart/chartjs",
+          "name": "Chartjs",
+          "icon": "circle",
+          "slug": "chart-chartjs"
+        }
+      ]
+    }
+  ]
+}

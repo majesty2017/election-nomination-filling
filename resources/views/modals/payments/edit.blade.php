@@ -1,0 +1,57 @@
+<!-- Modal -->
+<div
+        class="modal fade text-left"
+        id="edit-payment-modal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="myModalLabel1"
+        aria-hidden="true"
+>
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel1">Edit Payment</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="edit-payment-form" action="{{ route('payment-update') }}" method="post" enctype="multipart/form-data">
+                    @csrf
+
+                    <input type="hidden" name="id" id="e_id">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="e_student_id">Applicant</label>
+                                <select class="form-control" name="student_id" id="e_student_id">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="e_portfolio_id">Portfolio</label>
+                                <select class="form-control" name="portfolio_id" id="e_portfolio_id">
+                                    <option value=""></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="e_amount">Amount</label>
+                                <input type="number" readonly class="form-control" name="amount" id="e_amount" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- Basic trigger modal end -->
