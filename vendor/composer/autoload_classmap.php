@@ -57,6 +57,7 @@ return array(
     'App\\Models\\Student' => $baseDir . '/app/Models/Student.php',
     'App\\Models\\Team' => $baseDir . '/app/Models/Team.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
+    'App\\Models\\WebSetting' => $baseDir . '/app/Models/WebSetting.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',

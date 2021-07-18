@@ -21,6 +21,7 @@ class PortfolioController extends Controller
      */
     public function index()
     {
+        $breadcrumbs = [['link' => "/home", 'name' => "Home"], ['name' => "Portfolios"]];
         return view('content.portfolios.index');
     }
 

@@ -10,6 +10,8 @@ return [
   "Analytics" => "Analytics",
   "eCommerce" => "eCommerce",
   "users" => "Users",
+  "teams" => "Teams",
+  "web_settings" => "Web Settings",
   "departments" => "Departments",
   "nomination_fillings" => "Nomination Fillings",
   "fillings" => "Fillings",

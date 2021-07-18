@@ -3,6 +3,7 @@ $(document).ready(function () {
 })
 let _token = $('input[name=_token]').val()
 let profile_path = $('#profile_path').val()
+let team_path = $('#team_path').val()
 
 function load_image(image_id, image_loader = null, selector = '#') {
     if (selector === '.') {
@@ -457,4 +458,39 @@ function edit_fillings(id) {
         }
     })
     hold_modal('edit-filling-modal', 'show')
+}
+
+function view_teams(id) {
+    $.ajax({
+        url: '/teams/show',
+        type: 'post',
+        data: {id: id, _token: _token},
+        success: function (res) {
+            if (res) {
+                $.each(res, function (k, v) {
+                    if (v === null) v = ''
+                    $('#v_'+k).html(`<b><span>${v}</span></b>`)
+                })
+                $('#vv_image').html(`<img src="${team_path+'/'+res.image}" style="border-radius: 10px" width="120" height="120"  alt=""/>`)
+            }
+        }
+    })
+    hold_modal('view-team-modal', 'show')
+}
+
+function edit_teams(id) {
+    $.ajax({
+        url: '/teams/show',
+        type: 'post',
+        data: {id: id, _token: _token},
+        success: function (res) {
+            if (res) {
+                $.each(res, function (k, v) {
+                    $('#e_'+k).val(v)
+                })
+                $('#eimage_loader').html(`<img src="${team_path+'/'+res.image}" style="border-radius: 100px" width="80" height="80"  alt=""/>`)
+            }
+        }
+    })
+    hold_modal('edit-team-modal', 'show')
 }

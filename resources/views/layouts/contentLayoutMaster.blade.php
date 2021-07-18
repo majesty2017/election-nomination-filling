@@ -26,6 +26,7 @@ $configData = Helper::applClasses();
 </head>
 
 <input type="hidden" id="profile_path" value="{{ asset('images/profile/user-uploads/') }}">
+<input type="hidden" id="team_path" value="{{ asset('images/teams/team-uploads/') }}">
 
 
 @isset($configData["mainLayoutType"])

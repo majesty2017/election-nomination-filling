@@ -25,7 +25,8 @@ class NominationFillingController extends Controller
      */
     public function index()
     {
-        return view('content.fillings.index');
+        $breadcrumbs = [['link' => "/home", 'name' => "Home"], ['name' => "Nomination Fillings"]];
+        return view('content.fillings.index', compact('breadcrumbs'));
     }
 
     public function fillings()

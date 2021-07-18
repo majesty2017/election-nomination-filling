@@ -75,37 +75,16 @@
       "badgeClass": "badge badge-pill badge-light-danger ml-auto mr-1",
       "submenu": [
         {
-          "url": "chart/apex",
-          "name": "Apex",
-          "icon": "circle",
-          "slug": "chart-apex"
+          "url": "teams",
+          "name": "teams",
+          "icon": "users",
+          "slug": "teams"
         },
         {
-          "url": "chart/chartjs",
-          "name": "Chartjs",
-          "icon": "circle",
-          "slug": "chart-chartjs"
-        }
-      ]
-    },
-    {
-      "name": "reports",
-      "icon": "pie-chart",
-      "badge": "",
-      "slug": "",
-      "badgeClass": "badge badge-pill badge-light-danger ml-auto mr-1",
-      "submenu": [
-        {
-          "url": "chart/apex",
-          "name": "Apex",
-          "icon": "circle",
-          "slug": "chart-apex"
-        },
-        {
-          "url": "chart/chartjs",
-          "name": "Chartjs",
-          "icon": "circle",
-          "slug": "chart-chartjs"
+          "url": "web_settings",
+          "name": "web_settings",
+          "icon": "settings",
+          "slug": "web-setting"
         }
       ]
     }

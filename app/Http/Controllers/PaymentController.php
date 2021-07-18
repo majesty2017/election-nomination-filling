@@ -20,7 +20,8 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        return view('content.payments.index');
+        $breadcrumbs = [['link' => "/home", 'name' => "Home"], ['name' => "Payments"]];
+        return view('content.payments.index', compact('breadcrumbs'));
     }
 
     public function payments(): \Illuminate\Http\JsonResponse

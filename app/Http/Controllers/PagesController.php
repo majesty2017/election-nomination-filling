@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class PagesController extends Controller
 {
@@ -10,9 +12,23 @@ class PagesController extends Controller
   // Account Settings
   public function account_settings()
   {
-    $breadcrumbs = [['link' => "/", 'name' => "Home"], ['link' => "javascript:void(0)", 'name' => "Pages"], ['name' => "Account Settings"]];
+    $breadcrumbs = [['link' => "/", 'name' => "Home"], ['name' => "Account Settings"]];
     return view('/content/pages/page-account-settings', ['breadcrumbs' => $breadcrumbs]);
   }
+
+    public function profile_image(Request $request)
+    {
+        $file = $request->file('image');
+        $ext = $file->getClientOriginalExtension();
+        $filename = time().'.'.'jpg';
+        $file->move('images/profile/user-uploads', $filename);
+        $account = User::find(auth()->id());
+        $account->image = $filename;
+        if ($account->update()) {
+            return response()->json(['status' => 1, 'msg' => 'Profile image saved successfully.']);
+        }
+        return false;
+    }
 
   // Profile
   public function profile()
@@ -21,6 +37,42 @@ class PagesController extends Controller
 
     return view('/content/pages/page-profile', ['breadcrumbs' => $breadcrumbs]);
   }
+
+    public function update_profile(Request $request)
+    {
+        $v = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'phone' => 'required',
+        ]);
+        if ($v->fails()) {
+            return response()->json(['status' => 'fail', 'error' => $v->errors()]);
+        }
+        $user = User::find(auth()->id());
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        if ($user->update()) {
+            return response()->json(['data' => $user, 'message' => 'Changes saved successfully.']);
+        }
+        return false;
+    }
+
+    public function update_password(Request $request)
+    {
+        $v = Validator::make($request->all(), [
+            'password' => 'required|min:8|confirmed',
+        ]);
+        if ($v->fails()) {
+            return response()->json(['status' => 'fail', 'error' => $v->errors()]);
+        }
+        $user = User::find(auth()->id());
+        $user->password = bcrypt($request->password);
+        if ($user->update()) {
+            return response()->json(['data' => $user, 'message' => 'Password saved successfully.']);
+        }
+        return false;
+    }
 
   // FAQ
   public function faq()

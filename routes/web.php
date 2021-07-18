@@ -8,7 +8,9 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProgrammeController;
 use App\Http\Controllers\RegisterStudentController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WebSettingController;
 use App\Http\Controllers\WebsiteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LanguageController;
@@ -79,6 +81,26 @@ Route::group(['prefix' => 'users'], function () {
   Route::delete('destroy/{id}', [UserController::class,'destroy'])->name('user-destroy');
 });
 /* Route Users */
+
+/* Route Teams */
+Route::group(['prefix' => 'teams'], function () {
+  Route::get('', [TeamController::class,'index'])->name('teams');
+  Route::get('team-lists', [TeamController::class,'teams'])->name('team-lists');
+  Route::post('create', [TeamController::class,'store'])->name('team-create');
+  Route::post('show', [TeamController::class,'show'])->name('team-show');
+  Route::post('update', [TeamController::class,'update'])->name('team-update');
+  Route::delete('destroy/{id}', [TeamController::class,'destroy'])->name('team-destroy');
+});
+/* Route Teams */
+
+/* Route Web Settings */
+Route::group(['prefix' => 'web_settings'], function () {
+  Route::get('', [WebSettingController::class,'index'])->name('web-settings');
+  Route::post('create', [WebSettingController::class,'store'])->name('web_setting-create');
+  Route::post('show', [WebSettingController::class,'show'])->name('web_setting-show');
+  Route::post('update', [WebSettingController::class,'update'])->name('web_setting-update');
+});
+/* Route Web Settings */
 
 /* Route Departments */
 Route::group(['prefix' => 'departments'], function () {
@@ -292,6 +314,9 @@ Route::group(['prefix' => 'table'], function () {
 Route::group(['prefix' => 'page'], function () {
   Route::get('account-settings', [PagesController::class,'account_settings'])->name('page-account-settings');
   Route::get('profile', [PagesController::class,'profile'])->name('page-profile');
+  Route::post('profile-image', [PagesController::class,'profile_image'])->name('profile.image');
+  Route::post('update-profile', [PagesController::class,'update_profile'])->name('update.profile');
+  Route::post('update-password', [PagesController::class,'update_password'])->name('update.password');
   Route::get('faq', [PagesController::class,'faq'])->name('page-faq');
   Route::get('knowledge-base', [PagesController::class,'knowledge_base'])->name('page-knowledge-base');
   Route::get('knowledge-base/category', [PagesController::class,'kb_category'])->name('page-knowledge-base');

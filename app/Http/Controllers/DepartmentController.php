@@ -21,7 +21,8 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        return view('content.departments.index');
+        $breadcrumbs = [['link' => "/home", 'name' => "Home"], ['name' => "Departments List"]];
+        return view('content.departments.index', compact('breadcrumbs'));
     }
 
     public function departments()

@@ -16,7 +16,8 @@ class ProgrammeController extends Controller
      */
     public function index()
     {
-        return view('content.programmes.index');
+        $breadcrumbs = [['link' => "/home", 'name' => "Home"], ['name' => "Programmes"]];
+        return view('content.programmes.index', compact('breadcrumbs'));
     }
 
     public function programmes(): \Illuminate\Http\JsonResponse

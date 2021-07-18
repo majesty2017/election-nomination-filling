@@ -21,7 +21,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        return view('content.students.index');
+        $breadcrumbs = [['link' => "/home", 'name' => "Home"], ['name' => "Students List"]];
+        return view('content.students.index', compact('breadcrumbs'));
     }
 
     public function students(): \Illuminate\Http\JsonResponse

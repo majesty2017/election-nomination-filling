@@ -69,7 +69,7 @@
           </li>
           <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon" data-feather="{{($configData['theme'] === 'dark') ? 'sun' : 'moon' }}"></i></a></li>
           @if(auth()->user()->is_admin === 1)
-          <li class="nav-item dropdown dropdown-notification mr-25"><a class="nav-link" href="javascript:void(0);" data-toggle="dropdown"><i class="ficon" data-feather="bell"></i><span class="badge badge-pill badge-danger badge-up">5</span></a>
+          <li class="nav-item dropdown dropdown-notification mr-25 hidden"><a class="nav-link" href="javascript:void(0);" data-toggle="dropdown"><i class="ficon" data-feather="bell"></i><span class="badge badge-pill badge-danger badge-up">5</span></a>
             <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
               <li class="dropdown-menu-header">
                 <div class="dropdown-header d-flex">
@@ -158,11 +158,11 @@
             </span>
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdown-user">
-            <a class="dropdown-item" href="{{url('page/profile')}}">
+            <a class="dropdown-item" href="{{url('page/account-settings')}}">
               <i class="mr-50" data-feather="user"></i> Profile
             </a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{{url('page/account-settings')}}">
+            <a class="dropdown-item hidden" href="{{url('page/profile')}}">
               <i class="mr-50" data-feather="settings"></i> Settings
             </a>
             <a class="dropdown-item" href="{{url('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">

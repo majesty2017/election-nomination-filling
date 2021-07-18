@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-pickadate.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-flat-pickr.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/form-validation.css')) }}">
+  <link rel="stylesheet" href="{{ asset('ijaboCropTool/ijaboCropTool.min.css') }}">
 @endsection
 
 @section('content')
@@ -48,7 +49,7 @@
           </a>
         </li>
         <!-- information -->
-        <li class="nav-item">
+        <li class="nav-item hidden">
           <a
             class="nav-link"
             id="account-pill-info"
@@ -61,7 +62,7 @@
           </a>
         </li>
         <!-- social -->
-        <li class="nav-item">
+        <li class="nav-item hidden">
           <a
             class="nav-link"
             id="account-pill-social"
@@ -74,7 +75,7 @@
           </a>
         </li>
         <!-- notification -->
-        <li class="nav-item">
+        <li class="nav-item hidden">
           <a
             class="nav-link"
             id="account-pill-notifications"
@@ -107,38 +108,40 @@
               <div class="media">
                 <a href="javascript:void(0);" class="mr-25">
                   <img
-                    src="{{asset('images/portrait/small/avatar-s-11.jpg')}}"
+                    src="{{asset('images/profile/user-uploads/'.auth()->user()->image)}}"
                     id="account-upload-img"
                     class="rounded mr-50"
                     alt="profile image"
                     height="80"
                     width="80"
+                    style="border-radius: 100px"
                   />
                 </a>
                 <!-- upload and reset button -->
-                <div class="media-body mt-75 ml-1">
-                  <label for="account-upload" class="btn btn-sm btn-primary mb-75 mr-75">Upload</label>
-                  <input type="file" id="account-upload" hidden accept="image/*" />
-                  <button class="btn btn-sm btn-outline-secondary mb-75">Reset</button>
-                  <p>Allowed JPG, GIF or PNG. Max size of 800kB</p>
-                </div>
+                  <div class="media-body mt-75 ml-1">
+                    <a href="javascript:void(0)" id="account-upload-btn" class="btn btn-sm btn-primary mb-75 mr-75">Upload</a>
+                    <input type="file" id="account-upload" name="image" hidden accept="image/*" />
+                    <button class="btn btn-sm btn-outline-secondary mb-75 hidden">Reset</button>
+                    <p>Allowed JPG, GIF or PNG. Max size of 800kB</p>
+                  </div>
                 <!--/ upload and reset button -->
               </div>
               <!--/ header media -->
 
               <!-- form -->
-              <form class="validate-form mt-2">
+              <form id="update-profile-form" class="validate-form mt-2" method="post">
+                @csrf
+
                 <div class="row">
                   <div class="col-12 col-sm-6">
                     <div class="form-group">
-                      <label for="account-username">Username</label>
+                      <label for="phone">Phone Number</label>
                       <input
                         type="text"
                         class="form-control"
-                        id="account-username"
-                        name="username"
-                        placeholder="Username"
-                        value="johndoe"
+                        id="phone"
+                        name="phone"
+                        value="{{ auth()->user()->phone }}"
                       />
                     </div>
                   </div>
@@ -151,7 +154,7 @@
                         id="account-name"
                         name="name"
                         placeholder="Name"
-                        value="John Doe"
+                        value="{{ auth()->user()->name }}"
                       />
                     </div>
                   </div>
@@ -164,29 +167,8 @@
                         id="account-e-mail"
                         name="email"
                         placeholder="Email"
-                        value="granger007@hogward.com"
+                        value="{{ auth()->user()->email }}"
                       />
-                    </div>
-                  </div>
-                  <div class="col-12 col-sm-6">
-                    <div class="form-group">
-                      <label for="account-company">Company</label>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="account-company"
-                        name="company"
-                        placeholder="Company name"
-                        value="Crystal Technologies"
-                      />
-                    </div>
-                  </div>
-                  <div class="col-12 mt-75">
-                    <div class="alert alert-warning mb-50" role="alert">
-                      <h4 class="alert-heading">Your email is not confirmed. Please check your inbox.</h4>
-                      <div class="alert-body">
-                        <a href="javascript: void(0);" class="alert-link">Resend confirmation</a>
-                      </div>
                     </div>
                   </div>
                   <div class="col-12">
@@ -208,28 +190,7 @@
               aria-expanded="false"
             >
               <!-- form -->
-              <form class="validate-form">
-                <div class="row">
-                  <div class="col-12 col-sm-6">
-                    <div class="form-group">
-                      <label for="account-old-password">Old Password</label>
-                      <div class="input-group form-password-toggle input-group-merge">
-                        <input
-                          type="password"
-                          class="form-control"
-                          id="account-old-password"
-                          name="password"
-                          placeholder="Old Password"
-                        />
-                        <div class="input-group-append">
-                          <div class="input-group-text cursor-pointer">
-                            <i data-feather="eye"></i>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <form id="update-password-form" class="validate-form" method="post">
                 <div class="row">
                   <div class="col-12 col-sm-6">
                     <div class="form-group">
@@ -238,7 +199,7 @@
                         <input
                           type="password"
                           id="account-new-password"
-                          name="new-password"
+                          name="password"
                           class="form-control"
                           placeholder="New Password"
                         />
@@ -258,8 +219,8 @@
                           type="password"
                           class="form-control"
                           id="account-retype-new-password"
-                          name="confirm-new-password"
-                          placeholder="New Password"
+                          name="password_confirmation"
+                          placeholder="Retype New Password"
                         />
                         <div class="input-group-append">
                           <div class="input-group-text cursor-pointer"><i data-feather="eye"></i></div>
@@ -577,4 +538,76 @@
 @section('page-script')
   <!-- Page js files -->
   <script src="{{ asset(mix('js/scripts/pages/page-account-settings.js')) }}"></script>
+  <script src="{{ asset('ijaboCropTool/ijaboCropTool.min.js') }}"></script>
+  <script>
+  $(document).on('click', '#account-upload-btn', function () {
+    $('#account-upload').click()
+  })
+
+  $('#account-upload').ijaboCropTool({
+    preview : '',
+    setRatio:1,
+    allowedExtensions: ['jpg', 'jpeg','png'],
+    buttonsText:['CROP','QUIT'],
+    buttonsColor:['#30bf7d','#ee5155', -15],
+    processUrl:'{{ route('profile.image') }}',
+    withCSRF: ['_token', '{{ csrf_token() }}'],
+    onSuccess:function(message, element, status){
+      // alert(message);
+    },
+    onError:function(message, element, status){
+      alert(message);
+    }
+  });
+
+  $(document).ready(function () {
+    $('#update-profile-form').submit(function (e) {
+      e.preventDefault()
+      $.ajax({
+        url: '{{ route('update.profile') }}',
+        type: 'post',
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: new FormData(this),
+        success: function (res) {
+          if (res.status === 'fail') {
+            let msg
+            $.each(res.error, function (a, b) {
+              msg = b
+              message('error', msg)
+            })
+          } else {
+            message('success', res.message)
+            setTimeout(() => location.reload(), 100);
+          }
+        }
+      })
+    })
+
+    $('#update-password-form').submit(function (e) {
+      e.preventDefault()
+      $.ajax({
+        url: '{{ route('update.password') }}',
+        type: 'post',
+        cache: false,
+        contentType: false,
+        processData: false,
+        data: new FormData(this),
+        success: function (res) {
+          if (res.status === 'fail') {
+            let msg
+            $.each(res.error, function (a, b) {
+              msg = b
+              message('error', msg)
+            })
+          } else {
+            message('success', res.message)
+            setTimeout(() => location.reload(), 100);
+          }
+        }
+      })
+    })
+  })
+  </script>
 @endsection

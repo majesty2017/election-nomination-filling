@@ -140,6 +140,7 @@
     "/js/scripts/tables/table-datatables-portfolios.js": "/js/scripts/tables/table-datatables-portfolios.js",
     "/js/scripts/tables/table-datatables-programmes.js": "/js/scripts/tables/table-datatables-programmes.js",
     "/js/scripts/tables/table-datatables-students.js": "/js/scripts/tables/table-datatables-students.js",
+    "/js/scripts/tables/table-datatables-teams.js": "/js/scripts/tables/table-datatables-teams.js",
     "/js/scripts/tables/table-datatables-users.js": "/js/scripts/tables/table-datatables-users.js",
     "/js/scripts/ui/ui-feather.js": "/js/scripts/ui/ui-feather.js",
     "/vendors/js/blockui/blockui.min.js": "/vendors/js/blockui/blockui.min.js",
