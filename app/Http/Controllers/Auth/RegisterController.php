@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\WebSetting;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -74,10 +75,9 @@ class RegisterController extends Controller
     // Register
     public function showRegistrationForm()
     {
+        $setting = WebSetting::all()->first();
         $pageConfigs = ['blankPage' => true];
 
-        return view('/auth/register', [
-        'pageConfigs' => $pageConfigs
-        ]);
+        return view('/auth/register', compact('pageConfigs', 'setting'));
     }
 }

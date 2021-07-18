@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use App\Models\User;
+use App\Models\WebSetting;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\New_;
 
@@ -17,11 +18,10 @@ class RegisterStudentController extends Controller
     // Register
     public function showRegistrationForm()
     {
+        $setting = WebSetting::all()->first();
         $pageConfigs = ['blankPage' => true];
 
-        return view('/auth/register', [
-            'pageConfigs' => $pageConfigs
-        ]);
+        return view('/auth/register', compact('pageConfigs', 'setting'));
     }
 
     public function register(Request $request)

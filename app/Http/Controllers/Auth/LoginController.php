@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\WebSetting;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -40,13 +41,13 @@ class LoginController extends Controller
 
     // Login
     public function showLoginForm(){
+
+        $setting = WebSetting::all()->first();
       $pageConfigs = [
           'bodyClass' => "bg-full-screen-image",
           'blankPage' => true
       ];
 
-      return view('/auth/login', [
-          'pageConfigs' => $pageConfigs
-      ]);
+      return view('/auth/login', compact('pageConfigs', 'setting'));
     }
 }
