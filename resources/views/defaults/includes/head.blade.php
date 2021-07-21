@@ -36,3 +36,4 @@
     ======================================================== -->
 </head>
 <body>
+<input type="hidden" id="teams_path" value="{{ asset('images/teams/team-uploads/') }}">

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Team;
+use App\Models\WebSetting;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -16,8 +17,9 @@ class TeamController extends Controller
      */
     public function index()
     {
+        $setting = WebSetting::all()->first();
         $breadcrumbs = [['link' => "/", 'name' => "Home"], ['name' => "Teams"]];
-        return view('content.teams.index', compact('breadcrumbs'));
+        return view('content.teams.index', compact('breadcrumbs', 'setting'));
     }
 
     public function teams()
@@ -55,10 +57,11 @@ class TeamController extends Controller
         $team = new Team;
         $team->name = $request->name;
         $team->designation = $request->designation;
+        $team->description = $request->description;
         $team->facebook_url = $request->facebook_url;
         $team->twitter_url = $request->twitter_url;
         $team->instagram_url = $request->instagram_url;
-        $team->linkin_url = $request->flinkinurl;
+        $team->linkedin_url = $request->linkedin_url;
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();
@@ -114,10 +117,11 @@ class TeamController extends Controller
         $team = Team::find($request->id);
         $team->name = $request->name;
         $team->designation = $request->designation;
+        $team->description = $request->description;
         $team->facebook_url = $request->facebook_url;
         $team->twitter_url = $request->twitter_url;
         $team->instagram_url = $request->instagram_url;
-        $team->linkin_url = $request->flinkinurl;
+        $team->linkedin_url = $request->linkedin_url;
         if ($request->hasFile('image')) {
             $file = $request->file('image');
             $ext = $file->getClientOriginalExtension();

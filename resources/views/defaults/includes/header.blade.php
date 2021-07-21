@@ -12,7 +12,7 @@
                         <li ><a href="{{ route('index') }}">Home</a></li>
                         <li><a href="{{ route('about') }}">About</a></li>
                         <li><a href="{{ route('login') }}">Login / Registration</a></li>
-                        <li><a href="{{ route('portfolio') }}">Portfolio</a></li>
+                        <li><a href="{{ route('web-portfolio') }}">Portfolio</a></li>
                         <li><a href="{{ route('team') }}">Team</a></li>
                         <!-- <li><a href="blog.html">Blog</a></li>-->
                         <li class="drop-down"><a href="{{ route('history') }}">History</a>

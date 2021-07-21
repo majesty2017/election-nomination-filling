@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Portfolio;
+use App\Models\WebSetting;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -21,8 +22,9 @@ class PortfolioController extends Controller
      */
     public function index()
     {
+        $setting = WebSetting::all()->first();
         $breadcrumbs = [['link' => "/home", 'name' => "Home"], ['name' => "Portfolios"]];
-        return view('content.portfolios.index');
+        return view('content.portfolios.index', compact('breadcrumbs', 'setting'));
     }
 
     public function portfolios(): \Illuminate\Http\JsonResponse

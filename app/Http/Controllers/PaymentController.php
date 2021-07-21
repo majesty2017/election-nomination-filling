@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Payment;
 use App\Models\Portfolio;
 use App\Models\User;
+use App\Models\WebSetting;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -20,8 +21,9 @@ class PaymentController extends Controller
      */
     public function index()
     {
+        $setting = WebSetting::all()->first();
         $breadcrumbs = [['link' => "/home", 'name' => "Home"], ['name' => "Payments"]];
-        return view('content.payments.index', compact('breadcrumbs'));
+        return view('content.payments.index', compact('breadcrumbs', 'setting'));
     }
 
     public function payments(): \Illuminate\Http\JsonResponse

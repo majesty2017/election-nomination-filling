@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Programme;
+use App\Models\WebSetting;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -16,8 +17,9 @@ class ProgrammeController extends Controller
      */
     public function index()
     {
+        $setting = WebSetting::all()->first();
         $breadcrumbs = [['link' => "/home", 'name' => "Home"], ['name' => "Programmes"]];
-        return view('content.programmes.index', compact('breadcrumbs'));
+        return view('content.programmes.index', compact('breadcrumbs', 'setting'));
     }
 
     public function programmes(): \Illuminate\Http\JsonResponse

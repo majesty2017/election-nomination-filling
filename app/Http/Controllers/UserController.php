@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\WebSetting;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -16,7 +17,9 @@ class UserController extends Controller
 
     public function index()
     {
-        return view('content.users.index');
+        $setting = WebSetting::all()->first();
+        $breadcrumbs = [['link' => "/home", 'name' => "Home"], ['name' => "Students List"]];
+        return view('content.users.index', compact('setting', 'breadcrumbs'));
     }
 
     public function store(Request $request)

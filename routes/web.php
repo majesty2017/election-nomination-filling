@@ -48,9 +48,10 @@ Route::post('/student-register', [RegisterStudentController::class, 'register'])
 Route::group(['prefix' => 'websites'], function () {
     Route::get('/about', [WebsiteController::class, 'about'])->name('about');
     Route::get('/contact', [WebsiteController::class, 'contact'])->name('contact');
-    Route::get('/portfolio', [WebsiteController::class, 'portfolio'])->name('portfolio');
+    Route::get('/portfolio', [WebsiteController::class, 'portfolio'])->name('web-portfolio');
     Route::get('/service', [WebsiteController::class, 'service'])->name('service');
     Route::get('/team', [WebsiteController::class, 'team'])->name('team');
+    Route::get('team-lists', [WebsiteController::class,'teams'])->name('team-lists');
     Route::get('/history', [WebsiteController::class, 'history'])->name('history');
 });
 

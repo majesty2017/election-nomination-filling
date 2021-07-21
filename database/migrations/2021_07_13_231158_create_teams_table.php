@@ -21,7 +21,8 @@ class CreateTeamsTable extends Migration
             $table->string('twitter_url')->nullable();
             $table->string('facebook_url')->nullable();
             $table->string('instagram_url')->nullable();
-            $table->string('linkin_url')->nullable();
+            $table->string('linkedin_url')->nullable();
+            $table->text('description');
             $table->softDeletes();
             $table->timestamps();
         });

@@ -60,8 +60,8 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">LinkIn Url</label>
-                                <div id="v_linkin_url"></div>
+                                <label for="">LinkedIn Url</label>
+                                <div id="v_linkedin_url"></div>
                             </div>
                         </div>
                     </div>

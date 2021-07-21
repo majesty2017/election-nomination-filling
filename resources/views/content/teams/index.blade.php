@@ -27,6 +27,7 @@
                             <th>id</th>
                             <th>Name</th>
                             <th>Designation</th>
+                            <th>Description</th>
                             <th></th>
                         </tr>
                         </thead>

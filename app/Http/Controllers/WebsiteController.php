@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class WebsiteController extends Controller
@@ -9,6 +10,14 @@ class WebsiteController extends Controller
     public function index()
     {
         return view('defaults.content.index');
+    }
+
+
+
+    public function teams()
+    {
+        $teams = Team::orderBy('id', 'ASC')->get();
+        return response()->json(['data' => $teams]);
     }
 
     public function contact()

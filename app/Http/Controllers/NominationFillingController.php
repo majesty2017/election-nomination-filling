@@ -7,6 +7,7 @@ use App\Models\NominationFilling;
 use App\Models\Payment;
 use App\Models\Programme;
 use App\Models\User;
+use App\Models\WebSetting;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -25,8 +26,9 @@ class NominationFillingController extends Controller
      */
     public function index()
     {
+        $setting = WebSetting::all()->first();
         $breadcrumbs = [['link' => "/home", 'name' => "Home"], ['name' => "Nomination Fillings"]];
-        return view('content.fillings.index', compact('breadcrumbs'));
+        return view('content.fillings.index', compact('breadcrumbs', 'setting'));
     }
 
     public function fillings()

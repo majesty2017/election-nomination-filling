@@ -23,6 +23,7 @@ $(function () {
         { data: 'id' },
         { data: 'name' },
         { data: 'designation' },
+        { data: 'description' },
         { data: '' }
       ],
       columnDefs: [

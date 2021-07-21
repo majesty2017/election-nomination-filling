@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use App\Models\User;
+use App\Models\WebSetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -21,8 +22,9 @@ class StudentController extends Controller
      */
     public function index()
     {
+        $setting = WebSetting::all()->first();
         $breadcrumbs = [['link' => "/home", 'name' => "Home"], ['name' => "Students List"]];
-        return view('content.students.index', compact('breadcrumbs'));
+        return view('content.students.index', compact('breadcrumbs', 'setting'));
     }
 
     public function students(): \Illuminate\Http\JsonResponse

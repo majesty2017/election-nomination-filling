@@ -34,6 +34,12 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-group">
                                 <label for="image">Picture</label>
                                 <div class="custom-file">
                                     <input type="file" class="custom-file-input" name="image" id="image" onclick="load_image('image', 'image_loader')" />
@@ -62,8 +68,8 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="linkin_url">LinkIn Url</label>
-                                <input type="text" class="form-control" name="linkin_url" id="linkin_url" placeholder="">
+                                <label for="linkedin_url">LinkedIn Url</label>
+                                <input type="text" class="form-control" name="linkedin_url" id="linkedin_url" placeholder="">
                             </div>
                         </div>
                     </div>

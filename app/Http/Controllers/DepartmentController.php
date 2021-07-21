@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Department;
+use App\Models\WebSetting;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -21,8 +22,9 @@ class DepartmentController extends Controller
      */
     public function index()
     {
+        $setting = WebSetting::all()->first();
         $breadcrumbs = [['link' => "/home", 'name' => "Home"], ['name' => "Departments List"]];
-        return view('content.departments.index', compact('breadcrumbs'));
+        return view('content.departments.index', compact('breadcrumbs', 'setting'));
     }
 
     public function departments()
