@@ -1,7 +1,8 @@
 <!-- BEGIN: Footer-->
 <footer class="footer {{($configData['footerType']=== 'footer-hidden') ? 'd-none':''}} footer-light">
   <p class="clearfix mb-0">
-    <span class="float-md-left d-block d-md-inline-block mt-25">COPYRIGHT &copy; <script>document.write(new Date().getFullYear())</script><a class="ml-25" href="@if($setting->website){{$setting->website}}@else#@endif" target="_blank">{{ $setting->system_name }}</a>
+    <span class="float-md-left d-block d-md-inline-block mt-25">COPYRIGHT &copy; <script>document.write(new Date().getFullYear())</script>
+      <a class="ml-25" href="@if($setting->website){{$setting->website}}@else#@endif" target="_blank">{{ $setting->system_name }}</a>
       <span class="d-none d-sm-inline-block">, All rights Reserved</span>
     </span>
     <span class="float-md-right d-none d-md-block">Hand-crafted & Made with<i data-feather="heart"></i></span>

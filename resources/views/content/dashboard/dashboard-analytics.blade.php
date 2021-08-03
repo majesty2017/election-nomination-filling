@@ -271,6 +271,7 @@
           </div>
         </div>
         <!--/ Info table about actions -->
+    @endif
 
     <div class="row match-height d-none">
       <!-- Avg Sessions Chart Card starts -->
@@ -678,6 +679,7 @@
       </div>
     </div>
     <!--/ List DataTable -->
+    @endif
   </section>
   <!-- Dashboard Analytics end -->
 @endsection
