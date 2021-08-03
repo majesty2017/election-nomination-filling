@@ -115,8 +115,7 @@
       </div>
       <!-- Orders Chart Card ends -->
     </div>
-    @else
-    @if(auth()->user()->payment_status === 0)
+    @elseif(auth()->user()->payment_status === 0)
       <!-- Payment Card -->
         <div class="col-md-4 col-md-6 col-6 offset-3">
         <div class="card card-payment">
@@ -271,8 +270,7 @@
           </div>
         </div>
         <!--/ Info table about actions -->
-    @endif
-
+      @endif
     <div class="row match-height d-none">
       <!-- Avg Sessions Chart Card starts -->
       <div class="col-lg-6 col-12">
@@ -679,7 +677,6 @@
       </div>
     </div>
     <!--/ List DataTable -->
-    @endif
   </section>
   <!-- Dashboard Analytics end -->
 @endsection

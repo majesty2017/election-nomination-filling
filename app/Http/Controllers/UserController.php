@@ -28,7 +28,6 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'phone' => 'required|string|min:10',
             'email' => 'required|email|unique:users|max:255',
-            'is_admin' => 'required',
             'password' => 'required|string|min:8|same:password_confirmation',
         ]);
         if ($v->fails()) {
@@ -77,7 +76,6 @@ class UserController extends Controller
             'name' => 'required|string|max:255',
             'phone' => 'required|string|min:10',
             'email' => 'required|email|max:255',
-            'is_admin' => 'required',
         ]);
         if ($v->fails()) {
             return response()->json(['status' => 'fail', 'error' => $v->errors()]);
