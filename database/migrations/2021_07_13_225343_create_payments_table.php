@@ -19,6 +19,7 @@ class CreatePaymentsTable extends Migration
             $table->integer('portfolio_id');
             $table->double('amount', 10, 2);
             $table->string('reference_id');
+            $table->tinyInteger('refund')->default(0);
             $table->string('payment_mode');
             $table->softDeletes();
             $table->timestamps();

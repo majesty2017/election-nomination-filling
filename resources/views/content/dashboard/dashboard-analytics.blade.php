@@ -763,16 +763,16 @@
     let greetings = $('#greetings')
 
     if (time < 12) {
-      greetings.html(`<b>Good morning!</b>`)
+      greetings.html(`<b>Good Morning!</b>`)
     }
     if (time == 12) {
-      greetings.html(`<b>Good noon!</b>`)
+      greetings.html(`<b>Good Noon!</b>`)
     }
     if (time > 12 && time < 15) {
-      greetings.html(`<b>Good afternoon!</b>`)
+      greetings.html(`<b>Good Afternoon!</b>`)
     }
     if (time > 15) {
-      greetings.html(`<b>Good evening!</b>`)
+      greetings.html(`<b>Good Evening!</b>`)
     }
 
     $(document).ready(function () {
