@@ -16,6 +16,7 @@ class CreateProgrammesTable extends Migration
         Schema::create('programmes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('programme_id');
             $table->softDeletes();
             $table->timestamps();
         });

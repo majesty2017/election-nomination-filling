@@ -16,6 +16,8 @@ class CreatePortfoliosTable extends Migration
         Schema::create('portfolios', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('portfolio_id');
+            $table->double('amount', 10, 2);
             $table->softDeletes();
             $table->timestamps();
         });
